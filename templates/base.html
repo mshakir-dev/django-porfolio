@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Information About the Website and The Author -->
+    <!-- Search Engine Optimization -->
+    <meta name="description" content="Muhammad Shakir Complete Portfolio - Full Stack Web Developer">
+    <meta name="keywords"
+        content="Muhammad Shakir, Portfolio, JSU, Computer Science Information, Front-End Developer, JavaScript, HTML5, CSS3, Python, Java, PostgresSql">
+
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title> Portfolio {% block title %} {% endblock%}</title>
+</head>
+
+<body>
+    {% include 'partials/_topbar.html '%}
+    {% include 'partials/_navbar.html '%}
+    {% block content %}
+    {% endblock %}
+    {% include 'partials/_footer.html '%}
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/counter/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'js/counter/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'js/main_app.js' %}"></script>
+    <script src="{% static 'js/main_jquery.js' %}"></script>
+</body>
+
+</html>

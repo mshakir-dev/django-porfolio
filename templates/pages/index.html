@@ -1,0 +1,311 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load humanize %}
+
+{% block title %}
+ | Home
+{% endblock %}
+
+{% block content %}
+<!--  Main Showcase -->
+
+<section id="showcase">
+    <div class="dark-overlay">
+        <div class="home-inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="showcase-text pt-5">
+                            <!-- Title & Description -->
+                            <div class="helloBox">Hello</div>
+                            <h3>Muhammad Shakir</h3>
+                            <p>I'm a
+                                <span class="txt-type" data-wait="1500"
+                                    data-words='["UI Developer", "Python Developer", "Java Developer", "Programmer", "Creator", "Full Stack Web Developer"]'>
+                                </span> </p>
+                        </div>
+                        <div class="showcase-btns">
+                            <!-- Header buttons -->
+                            <a class="btn btn-primary btn-contact btn-md" href="{% url 'contact' %}" role="button">Contact
+                                &nbsp;
+                                <i class="fa fa-angle-down"> </i> </a>
+                            <a class="btn btn-primary btn-resume btn-md" href="#" role="button">Resume &nbsp;
+                                <i class="fa fa-angle-down"> </i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Showcase -->
+<section id="showcase1">
+  <div class="container text-center">
+    <div class="home-search p-3">
+      <div class="overlay p-2">
+        <h5 class=" mb-4">
+          Project Searching becomes Easy
+        </h5>
+      
+        <div class="search">
+          <form action="{% url 'search' %}">
+            <!-- Form Row 1 -->
+            <div class="form-row">
+              <div class="col-md-6 mb-3">
+                <label class="sr-only">Keywords</label>
+                <input type="text" name="keywords" class="form-control" placeholder="Keyword: Project Name, etc">
+              </div>
+<!-- 
+              <div class="col-md-6 mb-3">
+                <label class="sr-only">City</label>
+                <input type="text" name="city" class="form-control" placeholder="City">
+              </div> -->
+
+              <div class="col-md-6 mb-3">
+                <label class="sr-only">State</label>
+                <select name="languages" class="form-control">
+                  <option selected="true" disabled="disabled">(All) Languages</option>
+                    {% for key,value in projects_languages.items %}
+                      <option value="{{key}}">{{value}}</option>
+                    {% endfor %}
+                </select>
+              </div>
+            </div>
+            <!-- Form Row 2 -->
+            <!-- <div class="form-row">
+            </div> -->
+            <button class="btn btn-info btn-block mt-4" type="submit">Submit form</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Services I provided -->
+<section id="Services">
+    <div class="container">
+
+        <div class="row">
+            <div class="col">
+                <div class="section-title">
+                    <h2>Services</h2>
+                    <p class="lead">I am a very passionate programmer and Web developer, and I have completed my
+                        bachelor's degreen in computer information system from jacksonville State University. My top
+                        4 services are as follows: </p>
+                </div>
+                <!--Title -->
+            </div>
+        </div>
+
+        <div class="row text-center pb-5">
+            <div class="col-md-3 col-md-6 mb-2">
+                <div class="wrapper-service">
+                    <div class="service-icon"><i class="fa fa-html5" aria-hidden="true"></i>
+                    </div>
+                    <h3>Bootstrap / HTML5 & CSS3</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum ducimus officia quisquam
+                        quod illo.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-md-6 mb-2">
+                <div class="wrapper-service">
+                    <div class="service-icon"><i class="fa fa-laptop" aria-hidden="true"></i>
+                    </div>
+                    <h3>Java </h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum ducimus officia quisquam
+                        quod illo.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-md-6 mb-2">
+                <div class="wrapper-service">
+                    <div class="service-icon"><i class="fa fa-tv" aria-hidden="true"></i>
+                    </div>
+                    <h3>Python </h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum ducimus officia quisquam
+                        quod illo.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-md-6 mb-2">
+                <div class="wrapper-service">
+                    <div class="service-icon"><i class="fa fa-css3" aria-hidden="true"></i>
+                    </div>
+                    <h3>JavaScript</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum ducimus officia quisquam
+                        quod illo.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Heading - Show Some image with overlay Effect and Contact Information Click Button -->
+<section id="about-heading">
+    <div class="container">
+        <div class="row py-3">
+            <div class="col-md-10 mx-auto py-3">
+                <p> <span><i class="fa fa-quote-left" aria-hidden="true"> </i></span> &nbsp; Having an attractive &
+                    well design website for your business creates an opportunity to influence peoples
+                    mind-set & help you to generate more sales and revenues. <span><i class="fa fa-quote-right"
+                            aria-hidden="true"> </i></span></p>
+                <a class="btn btn-primary btn-contact" href="{% url 'contact' %}" role="button">Contact Me &nbsp;
+                    <i class="fa fa-angle-down"> </i> </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio -->
+<section id="portfolio" class="portfolio-area">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="section-title">
+            <h2>
+              Latest Project
+            </h2>
+          </div>
+          <!--Title -->
+        </div>
+      </div>
+  
+      <div class="allFilterButtons text-center">
+        <button class="btn filter-button" data-filter="all">All</button>
+        <button class="btn btn-default filter-button" data-filter="JavaScript">Javascript</button>
+        <button class="btn btn-default filter-button" data-filter="Python">Python</button>
+        <button class="btn btn-default filter-button" data-filter="Java">Java</button>
+      </div>
+  
+      <div class="row mb-5">
+        {% if projects %}
+          {% for project in projects %}
+          <div class="col-lg-4 col-md-6 col-sm-12 gallery_product filter {{project.tag1}} all">
+            <div class="card my-2">
+              <img class="card-img-top img-fluid" height="80%" src="{{ project.main_photo.url }}" height="70%" alt="">
+              <div class="card-body">
+                <div class="project-heading text-center">
+                  <h4 class="text-info">{{project.title}}</h4>
+                  <p><i class="fa fa-laptop text-secondary"></i> {{project.languages}} <br>
+                  <i class="fa fa-laptop text-secondary"></i> {{project.author}}
+                </p>
+                </div>
+                <hr>
+                <p class="description text-center">
+                  {{project.shortDescription}}
+                </p>
+                <p class="text-center" style="font-size: 14px;">Completed at: <span style="color: #17a2b8;"> {{ project.project_date | date}}</span></p>
+  
+                <a href="{% url 'project' project.id %}" class="btn btn-info btn-block">More Info</a>
+                
+  
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        {% else %}
+        <div class="col-md-12 my-5">
+          <div class="noContent bg-dark text-light">
+            <h4 class="text-center"> There is nothing in the database. Please add data in Django Admin Area </h4>
+          </div>
+        </div>
+        {% endif  %}
+        
+  
+      </div>
+  
+    </div>
+  </section>
+
+<section id="counter">
+    <div class="counterDark-overlay">
+        <div class="container py-5">
+            <!---->
+            <div class="row">
+
+                <div class="col-md-3 col-sm-6 text-center">
+                    <div class="counter_item">
+                        <i class="fa fa-code pb-3" aria-hidden="true"></i>
+                        <h2><span class="counter_num">12000 </span> <span> + </span></h2>
+                        <p>Line Of Codes</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 text-center">
+                    <div class="counter_item">
+                        <i class="fa fa-tasks pb-3" aria-hidden="true"></i>
+                        <h2><span class="counter_num">80 </span> <span> + </span></h2>
+                        <p>Projects Done</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 text-center">
+                    <div class="counter_item">
+                        <i class="fa fa-trophy pb-3" aria-hidden="true"></i>
+                        <h2><span class="counter_num">50 </span> <span> + </span></h2>
+                        <p>Project Awards</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 text-center">
+                    <div class="counter_item">
+                        <i class="fa fa-smile-o pb-3" aria-hidden="true"></i>
+                        <h2><span class="counter_num">50 </span> <span> + </span></h2>
+                        <p>Happy Clients</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contacts" class="mb-5">
+    <div class="container">
+        <div class="row py-3 text-center">
+            <div class="col-md-12">
+                <div class="section-title">
+                    <h2>
+                        Contact Me
+                    </h2>
+                    <p class="lead">
+                        Thank you for stopping by. Drop me a message and let's get in touch
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="my-information text-center mb-3">
+                    <div class="myInfo-icon"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                    </div>
+                    <h5>Location</h5>
+                    <p>Gadsden Alabama - USA</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="my-information text-center mb-3">
+                    <div class="myInfo-icon"><i class="fa fa-mobile" aria-hidden="true"></i>
+                    </div>
+                    <h5>Phone</h5>
+                    <p>(256) 441-0505</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="my-information text-center mb-3">
+                    <div class="myInfo-icon"><i class="fa fa-envelope-o" aria-hidden="true"></i>
+                    </div>
+                    <h5>Email</h5>
+                    <p style="box-sizing: border-box;">mshakir.munawar123@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

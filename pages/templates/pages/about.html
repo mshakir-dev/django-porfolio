@@ -1,0 +1,303 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+ | About
+{% endblock %}
+
+{% block content %}
+<!-- Showcase Inner -->
+<section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12">
+                <h1 class="display-4">About Me</h1>
+                <p class="lead">I am Passionate Web Developer and Programmer</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Breadcrumb -->
+<section class="mt-5">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{% url 'index' %}">
+                        <i class="fa fa-home"></i> Home</a>
+                </li>
+                <li class="breadcrumb-item active"> About</li>
+
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">
+                        <i class="fa fa-graduation-cap"></i>
+                        projects</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="{% url 'contact' %}">
+                        <i class="fa fa-map-marker"></i> contact</a>
+                </li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+
+
+
+
+
+<!-- About Me -->
+<section id="about">
+    <div class="container">
+
+        <div class="row">
+            <div class="col">
+                <div class="section-title">
+                    <h2>
+                        About Me
+                    </h2>
+
+                </div>
+                <!--Title -->
+            </div>
+        </div>
+
+        <div class="row pb-2">
+
+            {% if author %}
+                {% for a1 in author %}
+                    <div class="col-md-5">
+                        <img src="{% static 'images/Photo1.JPG' %}" alt="" class="mb-3">
+                        <!-- <img src="{{ a1.my_photo.url }}" height="50" alt="" class="mb-3"> -->
+                    </div>
+
+                <div class="col-md-7">
+                    <div class="my-info">
+                        
+                    <p class="lead objective"> {{a1.summary}} </p>
+
+
+                    <div class="info-title">
+                        <span class="name">Current Job Title : </span>
+                        <span class="desc">{{au.title}}</span>
+                    </div>
+                    <div class="info-title">
+                        <span class="name">Experience</span>
+                        <span class="desc">2 Years Experience in Computer Industry</span>
+                    </div>
+                    <div class="info-title">
+                        <span class="name">Phone : </span>
+                        <a href="tel:256-441-0505"><span class="desc">{{a1.phone}}</span></a>
+                    </div>
+                    <div class="info-title">
+                        <span class="name">Email : </span>
+                        <span class="desc">{{a1.email}}</span>
+                    </div>
+                    <div class="social-networks text-center mb-4">
+                        <a href="{{a1.facebook}}" title="Facebook" target="_blank" class="fa fa-facebook"></a>
+                        <a href="{{a1.twitter}}" title="Twitter" target="_blank" class="fa fa-twitter"></a>
+                        <a href="{{a1.linkedin}}" title="linkedin" target="_blank" class="fa fa-linkedin"></a>
+                        <a href="{{a1.github}}" title="Github" target="_blank" class="fa fa-github"></a>
+                        <a href="{{a1.instagram}}" title="Instagram" target="_blank"
+                            class="fa fa-instagram"></a>
+
+                    </div>
+                    <hr>
+                </div>
+            </div>
+                {%endfor%}
+            {% endif %}
+
+
+            
+        </div>
+
+    </div>
+</section>
+
+<section id="skills">
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-md-8 mx-auto my-5">
+                <div id="resume">
+                    <div class="progress">
+                        <div class="progress-bar" style="width:90%; background-color: #E1DF1A; color: #2c2e33;">
+                            <h3 class="progress-title">HTML 5</h3>
+                            <div class="progress-value">90%</div>
+                        </div>
+                    </div>
+
+                    <div class="progress">
+                        <div class="progress-bar" style="width:80%; background-color: #0194B6; color: #2c2e33">
+                            <h3 class="progress-title" style="color: #eee;">CSS 3</h3>
+                            <div class="progress-value">80%</div>
+                        </div>
+                    </div>
+
+                    <div class="progress">
+                        <div class="progress-bar" style="width:80%; background-color: #2c2e33; color: #2c2e33">
+                            <h3 class="progress-title" style="color: #eee;">Bootstrap</h3>
+                            <div class="progress-value">90%</div>
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width:90%; background-color: #E1DF1A; color: #2c2e33;">
+                            <h3 class="progress-title">HTML 5</h3>
+                            <div class="progress-value">90%</div>
+                        </div>
+                    </div>
+
+                    <div class="progress">
+                        <div class="progress-bar" style="width:80%; background-color: #0194B6; color: #2c2e33">
+                            <h3 class="progress-title" style="color: #eee;">CSS 3</h3>
+                            <div class="progress-value">80%</div>
+                        </div>
+                    </div>
+
+                    <div class="progress">
+                        <div class="progress-bar" style="width:80%; background-color: #2c2e33; color: #2c2e33">
+                            <h3 class="progress-title" style="color: #eee;">Bootstrap</h3>
+                            <div class="progress-value">90%</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- Achievement -->
+<section id="achievement">
+    <div class="achievementOverlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mx-auto text-center">
+                    <h4>
+                        Jacksonville State University - Honor's List
+                    </h4>
+                    <p>
+                        Muhammad Shakir of Gadsden AL has been named to Jacksonville State University's President's List
+                        for
+                        <strong>Spring 2018, Fall 2018, Spring 2019.</strong>
+                    </p>
+                    <a href="https://meritpages.com/Mshakir" target="_blank"
+                        class="btn btn-primary btn-achievement btn-lg" role="button">For More Information</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Experience -->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-title">
+                        <h2>Work Experience</h2>
+                        <p class="lead "> <span class="text-center"><i class="fa fa-quote-left" aria-hidden="true"></i>
+                            Without ambition one starts nothing. Without work one finishes nothing. The prize will not be sent to you. You have to win it
+                            <span><i class="fa fa-quote-right" aria-hidden="true"></i> <br> <strong class="high1ight1"
+                            style="font-size: 12px;"> - Ralph Waldo Emerson</strong> </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                {% if experiences %}
+                    {% for exp in experiences %}
+                        <div class="col-lg-6 col-md-6 my-4">
+                            <div class="card-deck">
+                                <div class="card">
+                                    <div class="card-header">
+                                        {{exp.experience_company}}
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title">
+                                            {{exp.experience_position}}
+                                        </h4>
+                                        <p class="card-text">
+                                            {{exp.experience_desc_point1}}<br>
+                                            {{exp.experience_desc_point2}}<br>
+                                            {{exp.experience_desc_point3}}<br>
+                                            {{exp.experience_desc_point4}}<br>
+                                            {{exp.experience_desc_point5}}
+                                        </p>
+                                        <p class="info p-2 mb-3">Contact Info: {{exp.email}}</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <h6 class="text-muted">Dates: <strong>{{exp.experience_hire_date | date}} - {{exp.experience_end_date | date}}</strong></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="col-md-12 my-5">
+                            <div class="noContent bg-dark text-light">
+                            <h4 class="text-center"> {{exp.name}} you haven't work for any company yet. </h4>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+    </section>
+
+<section id="education" class="mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="section-title">
+                    <h2>
+                        Academic/Background Education.
+                    </h2>
+
+                </div>
+                <!--Title -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-center py-2 pt-4">
+                <div class="my-information mb-3">
+                    <div class="myInfo-icon"><i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                    </div>
+                    <h5>Jacksonville State University</h5>
+                    <p>Bachelor's in Computer Information System with <strong>concentration</strong> in Web Developement
+                    </p>
+                    <p>Grade Point Average: 3.82 <br>
+                        Graduted in May 3rd, 2019</p>
+                </div>
+            </div>
+            <div class="col-md-4 text-center py-2 pt-4">
+                <div class="my-information mb-3">
+                    <div class="myInfo-icon"><i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                    </div>
+                    <h5>Jacksonville State University</h5>
+                    <p>Bachelor's in Computer Information System with <strong>concentration</strong> in Web Developement
+                    </p>
+                    <p>Grade Point Average: 3.82 <br>
+                        Graduted in May 3rd, 2019</p>
+                </div>
+            </div>
+            <div class="col-md-4 text-center py-2 pt-4">
+                <div class="my-information mb-3">
+                    <div class="myInfo-icon"><i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                    </div>
+                    <h5>Jacksonville State University</h5>
+                    <p>Bachelor's in Computer Information System with <strong>concentration</strong> in Web Developement
+                    </p>
+                    <p>Grade Point Average: 3.82 <br>
+                        Graduted in May 3rd, 2019</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--Container-->
+</section>
+{% endblock %}

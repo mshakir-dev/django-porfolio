@@ -1,0 +1,268 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block content %}
+<!-- Showcase Inner -->
+<section id="showcase-inner" class="py-5 text-white">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-12">
+        <h1 class="display-4">Complete Portfolio {{ name }}</h1>
+        <p class="lead">I am Passionate Web Developer and Programmer</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Breadcrumb -->
+<section class="mt-5">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="{% url 'index' %}">
+            <i class="fa fa-home"></i> Home</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="{% url 'about' %}">
+            <i class="fa fa-user"></i> About</a>
+        </li>
+        <li class="breadcrumb-item active ">
+
+          <i class="fa fa-graduation-cap"></i> projects
+        </li>
+        <li class="breadcrumb-item">
+          <a href="{% url 'contact' %}">
+            <i class="fa fa-map-marker"></i> contact</a>
+        </li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+
+<!-- Portfolio -->
+<section id="portfolio" class="portfolio-area">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="section-title">
+          <h2>
+            Latest Project
+          </h2>
+        </div>
+        <!--Title -->
+      </div>
+    </div>
+
+    <div class="allFilterButtons text-center">
+      <button class="btn filter-button" data-filter="all">All</button>
+      <button class="btn btn-default filter-button" data-filter="JavaScript">Javascript</button>
+      <button class="btn btn-default filter-button" data-filter="Python">Python</button>
+      <button class="btn btn-default filter-button" data-filter="Java">Java</button>
+    </div>
+
+    <div class="row">
+      {% if projects %}
+        {% for project in projects %}
+        <div class="col-lg-4 col-md-6 col-sm-12 gallery_product filter {{project.tag1}} all">
+          <div class="card my-2">
+            <img class="card-img-top img-fluid" height="80%" src="{{ project.main_photo.url }}" height="70%" alt="">
+            <div class="card-body">
+              <div class="project-heading text-center">
+                <h4 class="text-info">{{project.title}}</h4>
+                <p><i class="fa fa-laptop text-secondary"></i> {{project.languages}} <br>
+                <i class="fa fa-laptop text-secondary"></i> {{project.author}}
+              </p>
+              </div>
+              <hr>
+              <p class="description text-center">
+                {{project.shortDescription}}
+              </p>              
+              <p class="text-center" style="font-size: 14px;">Completed at: <span style="color: #17a2b8;"> {{ project.project_date | date}}</span></p>
+              <a href="{% url 'project' project.id %}" class="btn btn-info btn-block">More Info</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      {% else %}
+      <div class="col-md-12 my-5">
+        <div class="noContent bg-dark text-light">
+          <h4 class="text-center"> There is nothing in the database. Please add data in Django Admin Area </h4>
+        </div>
+      </div>
+      {% endif  %}
+      
+
+    </div>
+
+  </div>
+</section>
+
+<section id="pagination" class="my-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        {% if projects.has_other_pages %}
+          <ul class="pagination">
+            {% if projects.has_previous %}
+              <li class="page-item">
+                <a href="?page={{projects.previous_page_number}}" class="page-link">&laquo;</a>
+              </li>
+              {% else %}
+              <li class="page-item disabled">
+                <a class="page-link">&laquo;</a>
+              </li>
+            {% endif %}
+
+            {% for pageIndex in projects.paginator.page_range %}
+              {% if projects.number == pageIndex %}
+                <li class="page-item">
+                  <a class="page-link active">{{pageIndex}}</a>
+                </li>
+              {% else %}
+              <li class="page-item">
+                <a href="?page={{pageIndex}}" class="page-link">{{pageIndex}}</a>
+              </li>  
+              {% endif %}
+            {% endfor %}
+
+            {% if projects.has_next %}
+              <li class="page-item">
+                <a href="?page={{projects.next_page_number}}" class="page-link">&raquo;</a>
+              </li>
+            {% else %}
+              <li class="page-item disabled">
+                <a class="page-link">&raquo;</a>
+              </li>
+            {% endif %}
+
+
+
+          </ul>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="row py-3 text-center">
+      <div class="col">
+        <div class="section-title">
+          <h2>
+            Testimonials
+          </h2>
+          <p class="lead">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet aliquid error esse beatae
+            minima accusantium.</p>
+        </div>
+        <!--Title -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="container">
+
+
+    <div class="row">
+      <div class="col-md-9 mx-auto py-5">
+        <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active text-center mb-3">
+              <img src="images/person1.jpg" alt="" class="center-block img-fluid">
+              <h3 class="highlight mt-4">Ayesha</h3>
+              <p class="lead py-3"> <span><i class="fa fa-quote-left" aria-hidden="true"></i> &nbsp; &nbsp; &nbsp;
+                  &nbsp; </span>
+                More than a stunning experience with this tidy, organized, professional guy... <span
+                  class="highlight">Muhammad Shakir</span> is one of the most understanding persons I ever worked
+                with. Absolutely amazing experience. Seller knows his stuff! Will definitely use again... Thank you
+                Muhammad Shakir
+
+                .<span> &nbsp; &nbsp; &nbsp; &nbsp; <i class="fa fa-quote-right" aria-hidden="true"></i> </span>
+              </p>
+            </div>
+            <div class="carousel-item text-center">
+              <img src="images/person2.jpg" alt="" class="img-fluid">
+              <h3 class="highlight mt-4">Fatima</h3>
+              <p class="lead py-3"> <span><i class="fa fa-quote-left" aria-hidden="true"></i> &nbsp; &nbsp; &nbsp;
+                  &nbsp; </span>
+                He was absolutely great. he designed an awesome website in just a few days and produced a very sleek,
+                modern design. He was very responsive to my requests and patient with my several revision requests. I
+                would highly recommend <span class="highlight">Muhammad Shakir</span> to anyone looking for a new web
+                design.
+
+                .<span> &nbsp; &nbsp; &nbsp; &nbsp; <i class="fa fa-quote-right" aria-hidden="true"></i> </span>
+              </p>
+            </div>
+            <div class="carousel-item text-center">
+              <img src="images/person3.jpg" alt="" class="center-block img-fluid">
+              <h3 class="highlight mt-4">Abdul Basit</h3>
+              <p class="lead py-3 text-center"> <span><i class="fa fa-quote-left" aria-hidden="true"></i> &nbsp;
+                  &nbsp; &nbsp; &nbsp; </span>
+                I continue to work with <span class="highlight">Muhammad Shakir</span> because he is a very resolute
+                and patient person and I am very happy to have found Muhammad Shakir. Thank you very much for your
+                professionalism.
+                Thank you for the work, it was great working with you. I Will definitely be sending more clients on
+                his way!
+                .<span> &nbsp; &nbsp; &nbsp; &nbsp; <i class="fa fa-quote-right" aria-hidden="true"></i> </span>
+              </p>
+            </div>
+          </div>
+        </div> <!-- CarouselExampleIndicators -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacts" class="mb-5">
+  <div class="container">
+    <div class="row py-3 text-center">
+      <div class="col-md-12">
+        <div class="section-title">
+          <h2>
+            Contact Me
+          </h2>
+          <p class="lead">
+            Thank you for stopping by. Drop me a message and let's get in touch
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="my-information text-center mb-3">
+          <div class="myInfo-icon"><i class="fa fa-map-marker" aria-hidden="true"></i>
+          </div>
+          <h5>Location</h5>
+          <p>Gadsden Alabama - USA</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="my-information text-center mb-3">
+          <div class="myInfo-icon"><i class="fa fa-mobile" aria-hidden="true"></i>
+          </div>
+          <h5>Phone</h5>
+          <!-- <p>{{projects.phone}}</p> -->
+          <p>256-441-0505</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="my-information text-center mb-3">
+          <div class="myInfo-icon"><i class="fa fa-envelope-o" aria-hidden="true"></i>
+          </div>
+          <h5>Email</h5>
+          <p>mshakir.munawar123@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock%}

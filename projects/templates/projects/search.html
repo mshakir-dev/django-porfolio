@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Showcase -->
+<section id="search">
+    <div class="container text-center">
+      <div class="home-search p-5">
+        <div class="overlay p-2">
+          <h3 class="mb-4">
+            Search Projects By Selecting the Language or a Keyword
+          </h3>
+          <div class="search">
+            <form action="{% url 'search' %}">
+              <div class="form-row">
+                <div class="col-md-6 mb-1">
+                  <label class="sr-only">Keywords</label>
+                  <input type="text" name="keywords" value={{values.keywords}} class="form-control" placeholder="Keyword: Project Name, etc">
+                </div>
+                <div class="col-md-6 mb-1">
+                  <label class="sr-only">State</label>
+                  <select name="languages" class="form-control">
+                    <option selected="true" disabled="disabled">(All) Languages</option>
+                      {% for key,value in projects_languages.items %}
+                        <option value="{{key}}"
+                        {% if key == values.languages %}
+                            selected
+                        {% endif %}
+                        >{{value}}</option>
+                      {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <button class="btn btn-info btn-block mt-4" type="submit">Search Project</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+<section class="mt-5">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'index' %}">
+              <i class="fa fa-home"></i> Home</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="{% url 'about' %}">
+              <i class="fa fa-user"></i> About</a>
+          </li>
+          <li class="breadcrumb-item active ">
+            <i class="fa fa-map-marker"></i> Search Result 
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+<section id="portfolio" class="portfolio-area">
+    <div class="container">  
+      <div class="row mb-5">
+        {% if projects %}
+          {% for project in projects %}
+          <div class="col-lg-4 col-md-6 col-sm-12 gallery_product filter {{project.tag1}} all">
+            <div class="card my-2">
+              <img class="card-img-top img-fluid" height="80%" src="{{ project.main_photo.url }}" height="70%" alt="">
+              <div class="card-body">
+                <div class="project-heading text-center">
+                  <h4 class="text-info">{{project.title}}</h4>
+                  <p><i class="fa fa-laptop text-secondary"></i> {{project.languages}} <br>
+                  <i class="fa fa-laptop text-secondary"></i> {{project.author}}
+                </p>
+                </div>
+                <hr>
+                <p class="description text-center">
+                  {{project.shortDescription}}
+                </p>
+                <p class="text-center" style="font-size: 14px;">Completed at: <span style="color: #17a2b8;"> {{ project.project_date | date}}</span></p>
+  
+                <a href="{% url 'project' project.id %}" class="btn btn-info btn-block">More Info</a>
+                
+  
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        {% else %}
+        <div class="col-md-12 my-5">
+          <div class="noContent bg-dark text-light">
+            <h4 class="text-center p-3"> No Project Found  </h4>
+          </div>
+        </div>
+        {% endif  %}
+        
+  
+      </div>
+  
+    </div>
+  </section>
+
+{% endblock %}
